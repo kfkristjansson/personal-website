@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Personal Webpage</title>
+    <title>Kristjan's Personal Webpage</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212;
-            color: #ffffff;
+            background-color: #0e1111;
+            color: #e0e0e0;
             line-height: 1.6;
         }
 
         header {
-            background: #1e1e1e;
+            background: #1a1f1f;
             padding: 20px;
             text-align: center;
         }
@@ -23,6 +23,7 @@
         header h1 {
             margin: 0;
             font-size: 2.5rem;
+            color: #00adb5;
         }
 
         nav {
@@ -30,24 +31,31 @@
         }
 
         nav a {
-            color: #ffffff;
+            color: #e0e0e0;
             text-decoration: none;
             margin: 0 15px;
             font-size: 1.2rem;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            color: #00adb5;
         }
 
         section {
             padding: 20px;
             max-width: 800px;
             margin: 20px auto;
+            background: #1a1f1f;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        section h2 {
+            color: #00adb5;
         }
 
         footer {
-            background: #1e1e1e;
+            background: #1a1f1f;
             text-align: center;
             padding: 10px 0;
             position: fixed;
@@ -62,8 +70,8 @@
 
         .button {
             display: inline-block;
-            background: #ffffff;
-            color: #121212;
+            background: #00adb5;
+            color: #0e1111;
             padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
@@ -72,13 +80,33 @@
         }
 
         .button:hover {
-            background: #bbbbbb;
+            background: #008a92;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .profile img {
+            border-radius: 50%;
+            max-width: 150px;
+            border: 2px solid #00adb5;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Your Name</h1>
+        <h1>Kristjan's Personal Website</h1>
         <nav>
             <a href="#about">About Me</a>
             <a href="#portfolio">Portfolio</a>
@@ -89,7 +117,36 @@
 
     <section id="about">
         <h2>About Me</h2>
-        <p>Welcome to my personal webpage! I am a Co-founder & CEO at 50skills, an HR automation platform. I am passionate about creating solutions that enhance employee journeys and improve productivity.</p>
+        <div class="profile">
+            <img src="50skills_Kristjan-profilepic.jpg" alt="Kristjan's Profile Picture">
+            <p>Kristjan is CEO & Co-Founder of 50skills.com - the people process automation platform for seamless employee journeys and enhanced productivity.</p>
+        </div>
+        <p>
+            50skills is a software solution that amplifies HR managers to automate their people processes. It's a no-code employee journey builder, that increases productivity, performance & retention. 
+            It's lightning fast with Apple-like designs in UX/UI. It integrates with anything employers use and can bring custom AI services such as OpenAI GPT's to any process.
+        </p>
+        <p>
+            Journeys by 50skills provides a comprehensive suite of templates designed to support every people process imaginable, from onboarding and crossboarding to offboarding, paperwork management, video training, and system integrations.
+            These ready-to-use templates offer a robust foundation for businesses to efficiently manage and optimize all aspects of their HR operations.
+        </p>
+        <p>
+            Prior to 50skills, Kristjan was VP of Marketing Products at Meniga (2014-2017). There he helped the company grow into being a Fintech white-label leader in Europe serving more than 50 million people in 20 countries.
+        </p>
+        <p>
+            Prior to Meniga Kristjan was CEO of Klak, which focuses on empowering the Icelandic Entrepreneurial Eco-system with various initiatives.
+        </p>
+        <p>
+            He co-founded and managed Startup Reykjavik (2012-2013), the #1 Seed Accelerator in Iceland. He also served as an accredited Global Facilitator for Startup Weekend (2009-2016), where he facilitated more than 10+ Startup weekends in diverse places, ranging from various places in the Nordics to Tehran, Iran (2012). He was the global partner for Global Entrepreneurship Week in Iceland (2009-2013), TEDxReykjavik licensee (2011-2013) and the former manager of Iceland’s largest idea competition, the Golden Egg (2009-2011).
+        </p>
+        <p>
+            Kristjan is a keynote speaker on the Future of Hiring, Entrepreneurship and Business Models. More than +1k students have sat in his classes at the University of Iceland, Bifrost University, and Reykjavík University.
+        </p>
+        <p>
+            Kristjan has founded three startups. First, a small and an honest software failure in the contracting space, second a souvenir startup which sold volcanic ash from the Volcano Eyjafjallajökull, and thirdly 50skills.
+        </p>
+        <p>
+            Kristjan has a Bachelor degree in Political Science with emphasis on economics and a master’s degree in Marketing, both from the University of Iceland.
+        </p>
     </section>
 
     <section id="portfolio">
@@ -119,7 +176,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+        <p>&copy; 2024 Kristjan's Personal Website. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
