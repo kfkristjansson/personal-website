@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     <title>Kristjan's Personal Webpage</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0e1111;
+            background: linear-gradient(135deg, #0e1111 0%, #1a1f1f 50%, #0e1111 100%);
             color: #e0e0e0;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         header {
             background: #1a1f1f;
             padding: 20px;
             text-align: center;
+            position: relative;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: #00adb5;
+            text-shadow: 0 0 10px #00adb5, 0 0 20px #00adb5;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #00adb5; }
+            to { text-shadow: 0 0 20px #00adb5, 0 0 40px #00adb5; }
         }
 
         nav {
@@ -35,23 +45,48 @@
             text-decoration: none;
             margin: 0 15px;
             font-size: 1.2rem;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
             color: #00adb5;
+            text-shadow: 0 0 5px #00adb5;
+        }
+
+        /* Old-school marquee */
+        .marquee-container {
+            background: #00adb5;
+            color: #0e1111;
+            padding: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .marquee {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
 
         section {
             padding: 20px;
             max-width: 800px;
-            margin: 20px auto;
+            margin: 40px auto;
             background: #1a1f1f;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
 
         section h2 {
             color: #00adb5;
+            font-size: 2rem;
+            border-bottom: 1px solid #00adb5;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
         }
 
         footer {
@@ -61,6 +96,7 @@
             position: fixed;
             bottom: 0;
             width: 100%;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.5);
         }
 
         footer p {
@@ -77,6 +113,7 @@
             border-radius: 5px;
             font-size: 1rem;
             margin-top: 10px;
+            transition: background 0.3s ease;
         }
 
         .button:hover {
@@ -92,7 +129,7 @@
         .profile img {
             border-radius: 50%;
             max-width: 150px;
-            border: 2px solid #00adb5;
+            border: 3px solid #00adb5;
         }
 
         ul {
@@ -101,6 +138,70 @@
 
         ul li {
             margin-bottom: 10px;
+        }
+
+        /* Old-school Winamp-style section */
+        .winamp-section {
+            margin-top: 40px;
+            background: #000;
+            color: #0f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            text-align: center;
+            box-shadow: inset 0 0 20px rgba(0,255,0,0.5);
+        }
+        .winamp-section h3 {
+            margin: 0;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            text-shadow: 0 0 5px #0f0;
+        }
+
+        .winamp-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .winamp-button {
+            display: inline-block;
+            background: #111;
+            color: #0f0;
+            padding: 5px 10px;
+            border: 1px solid #0f0;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .winamp-button:hover {
+            background: #0f0;
+            color: #000;
+        }
+
+        .under-construction {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .under-construction img {
+            max-width: 100px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            nav a {
+                display: inline-block;
+                margin: 10px 0;
+            }
+
+            .profile {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -115,65 +216,66 @@
         </nav>
     </header>
 
+    <div class="marquee-container">
+        <div class="marquee">Welcome to Kristjan's Personal Webpage! &mdash; Experience HR Automation, Retro Vibes, and More &mdash; Enjoy your stay!</div>
+    </div>
+
     <section id="about">
         <h2>About Me</h2>
         <div class="profile">
             <img src="50skills_Kristjan-profilepic.jpg" alt="Kristjan's Profile Picture">
             <p>Kristjan is CEO & Co-Founder of 50skills.com - the people process automation platform for seamless employee journeys and enhanced productivity.</p>
         </div>
-        <p>
-            50skills is a software solution that amplifies HR managers to automate their people processes. It's a no-code employee journey builder, that increases productivity, performance & retention. 
-            It's lightning fast with Apple-like designs in UX/UI. It integrates with anything employers use and can bring custom AI services such as OpenAI GPT's to any process.
-        </p>
-        <p>
-            Journeys by 50skills provides a comprehensive suite of templates designed to support every people process imaginable, from onboarding and crossboarding to offboarding, paperwork management, video training, and system integrations.
-            These ready-to-use templates offer a robust foundation for businesses to efficiently manage and optimize all aspects of their HR operations.
-        </p>
-        <p>
-            Prior to 50skills, Kristjan was VP of Marketing Products at Meniga (2014-2017). There he helped the company grow into being a Fintech white-label leader in Europe serving more than 50 million people in 20 countries.
-        </p>
-        <p>
-            Prior to Meniga Kristjan was CEO of Klak, which focuses on empowering the Icelandic Entrepreneurial Eco-system with various initiatives.
-        </p>
-        <p>
-            He co-founded and managed Startup Reykjavik (2012-2013), the #1 Seed Accelerator in Iceland. He also served as an accredited Global Facilitator for Startup Weekend (2009-2016), where he facilitated more than 10+ Startup weekends in diverse places, ranging from various places in the Nordics to Tehran, Iran (2012). He was the global partner for Global Entrepreneurship Week in Iceland (2009-2013), TEDxReykjavik licensee (2011-2013) and the former manager of Iceland’s largest idea competition, the Golden Egg (2009-2011).
-        </p>
-        <p>
-            Kristjan is a keynote speaker on the Future of Hiring, Entrepreneurship and Business Models. More than +1k students have sat in his classes at the University of Iceland, Bifrost University, and Reykjavík University.
-        </p>
-        <p>
-            Kristjan has founded three startups. First, a small and an honest software failure in the contracting space, second a souvenir startup which sold volcanic ash from the Volcano Eyjafjallajökull, and thirdly 50skills.
-        </p>
-        <p>
-            Kristjan has a Bachelor degree in Political Science with emphasis on economics and a master’s degree in Marketing, both from the University of Iceland.
-        </p>
+        <p>50skills is a software solution that amplifies HR managers to automate their people processes. It's a no-code employee journey builder, that increases productivity and retention. It's lightning fast and integrates with anything employers use, bringing custom AI services such as OpenAI GPT's to any process.</p>
+        <p>Journeys by 50skills provides templates for every people process, from onboarding to offboarding, paperwork, training, and integrations, helping businesses optimize HR operations.</p>
+        <p>Before 50skills, Kristjan was VP of Marketing Products at Meniga (2014-2017). Prior to that, he led Klak and Startup Reykjavik, contributing to the entrepreneurial scene in Iceland. He has facilitated global startup events, delivered keynotes, and taught over 1,000 students at various universities.</p>
+        <p>Kristjan's educational background includes a Bachelor's in Political Science (with economics emphasis) and a Master's in Marketing from the University of Iceland.</p>
     </section>
 
     <section id="portfolio">
         <h2>Portfolio</h2>
-        <p>Here are some of the key projects I have worked on:</p>
+        <p>Some key projects:</p>
         <ul>
-            <li><strong>50skills:</strong> An HR automation platform designed to streamline employee onboarding and operations.</li>
-            <li><strong>Other Projects:</strong> [Include more projects or achievements here]</li>
+            <li><strong>50skills:</strong> An HR automation platform designed to streamline onboarding and operations.</li>
+            <li><strong>Volcanic Ash Souvenirs:</strong> A unique retail project featuring volcanic ash from Eyjafjallajökull.</li>
+            <li><strong>Startup Reykjavik:</strong> Iceland's #1 Seed Accelerator program.</li>
         </ul>
     </section>
 
     <section id="contact">
         <h2>Contact</h2>
-        <p>If you'd like to get in touch, feel free to reach out via email or connect with me on LinkedIn.</p>
+        <p>Get in touch via email or LinkedIn.</p>
         <a href="mailto:yourname@example.com" class="button">Email Me</a>
         <a href="https://www.linkedin.com/in/your-profile" class="button" target="_blank">LinkedIn</a>
     </section>
 
     <section id="blog">
         <h2>Blog</h2>
-        <p>Check out my latest posts:</p>
+        <p>Check out recent posts:</p>
         <ul>
-            <li><a href="#" target="_blank">Post Title 1</a></li>
-            <li><a href="#" target="_blank">Post Title 2</a></li>
-            <li><a href="#" target="_blank">Post Title 3</a></li>
+            <li><a href="#" target="_blank">Building a Better Onboarding Experience</a></li>
+            <li><a href="#" target="_blank">How Automation Shapes the Future of HR</a></li>
+            <li><a href="#" target="_blank">Reflections on Entrepreneurship</a></li>
         </ul>
     </section>
+
+    <!-- Old-school Winamp style player section -->
+    <section class="winamp-section">
+        <h3>Retro Winamp Player</h3>
+        <div class="winamp-controls">
+            <div class="winamp-button">Play</div>
+            <div class="winamp-button">Stop</div>
+            <div class="winamp-button">Next</div>
+        </div>
+        <p>[ Simulating classic tunes... ]</p>
+    </section>
+
+    <!-- Old-school Under Construction GIF -->
+    <div class="under-construction">
+        <h2>Under Construction</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Under_construction_icon-yellow.svg/200px-Under_construction_icon-yellow.svg.png" alt="Under Construction">
+        <p>Just like the old days of the web!</p>
+    </div>
 
     <footer>
         <p>&copy; 2024 Kristjan's Personal Website. All Rights Reserved.</p>
