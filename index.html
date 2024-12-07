@@ -5,98 +5,267 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <title>Kristjan's Personal Webpage</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #0e1111 0%, #1a1f1f 50%, #0e1111 100%);
+            background: #0e1111;
             color: #e0e0e0;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
         }
 
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header / Hero Section */
         header {
-            background: #1a1f1f;
-            padding: 20px;
-            text-align: center;
             position: relative;
+            min-height: 100vh;
+            background: url('https://images.unsplash.com/photo-1653116010949-45bd7c2f1b60?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(14,17,17,0.7);
         }
 
         header h1 {
+            position: relative;
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            font-size: 3.5rem;
             margin: 0;
-            font-size: 3rem;
-            color: #00adb5;
-            text-shadow: 0 0 10px #00adb5, 0 0 20px #00adb5;
-            animation: glow 2s ease-in-out infinite alternate;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            z-index: 2;
+            animation: fadeInDown 1s ease-in-out forwards;
+            opacity: 0;
         }
 
-        @keyframes glow {
-            from { text-shadow: 0 0 10px #00adb5; }
-            to { text-shadow: 0 0 20px #00adb5, 0 0 40px #00adb5; }
+        header p {
+            position: relative;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            max-width: 600px;
+            color: #f0f0f0;
+            z-index: 2;
+            animation: fadeInUp 1.5s ease-in-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInDown {
+            0% { opacity:0; transform: translateY(-20px); }
+            100% { opacity:1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity:0; transform: translateY(20px); }
+            100% { opacity:1; transform: translateY(0); }
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            font-size: 1.5rem;
+            color: #fff;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+            z-index: 2;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
         }
 
         nav {
-            margin: 20px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            background: rgba(14,17,17,0.6);
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            transition: padding 0.3s;
+        }
+
+        nav.scrolled {
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 20px 0;
         }
 
         nav a {
             color: #e0e0e0;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.2rem;
+            font-weight: 600;
+            position: relative;
+            font-size: 1rem;
             transition: color 0.3s ease;
         }
 
         nav a:hover {
             color: #00adb5;
-            text-shadow: 0 0 5px #00adb5;
-        }
-
-        /* Old-school marquee */
-        .marquee-container {
-            background: #00adb5;
-            color: #0e1111;
-            padding: 10px;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        .marquee {
-            display: inline-block;
-            animation: marquee 20s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
         }
 
         section {
-            padding: 20px;
-            max-width: 800px;
-            margin: 40px auto;
-            background: #1a1f1f;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
         }
 
         section h2 {
+            font-family: 'Playfair Display', serif;
             color: #00adb5;
-            font-size: 2rem;
-            border-bottom: 1px solid #00adb5;
-            padding-bottom: 5px;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+            text-align: center;
+        }
+
+        /* About Section */
+        #about .profile-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #about img {
+            border-radius: 50%;
+            max-width: 200px;
+            border: 4px solid #00adb5;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        #about .bio {
+            max-width: 600px;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        /* Portfolio Section */
+        #portfolio .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            background: #1a1f1f;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            display: block;
+        }
+
+        .portfolio-item h3 {
+            margin: 15px;
+            font-size: 1.4rem;
+            color: #00adb5;
+        }
+
+        .portfolio-item p {
+            margin: 0 15px 20px;
+            font-size: 1rem;
+        }
+
+        /* Contact Section */
+        #contact .contact-info {
+            text-align: center;
+        }
+
+        #contact .button {
+            display: inline-block;
+            background: #00adb5;
+            color: #0e1111;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            margin: 10px;
+            transition: background 0.3s ease;
+        }
+
+        #contact .button:hover {
+            background: #008a92;
+        }
+
+        /* Blog Section */
+        #blog ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #blog li {
             margin-bottom: 20px;
         }
 
+        #blog a {
+            color: #00adb5;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 2px;
+        }
+
+        #blog a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 2px;
+            background: #00adb5;
+            transition: width 0.3s ease;
+        }
+
+        #blog a:hover::after {
+            width: 100%;
+        }
+
+        /* Footer */
         footer {
             background: #1a1f1f;
             text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.5);
+            padding: 20px;
+            position: relative;
+            color: #bdbdbd;
         }
 
         footer p {
@@ -104,181 +273,101 @@
             font-size: 0.9rem;
         }
 
-        .button {
-            display: inline-block;
-            background: #00adb5;
-            color: #0e1111;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            margin-top: 10px;
-            transition: background 0.3s ease;
-        }
-
-        .button:hover {
-            background: #008a92;
-        }
-
-        .profile {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .profile img {
-            border-radius: 50%;
-            max-width: 150px;
-            border: 3px solid #00adb5;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        ul li {
-            margin-bottom: 10px;
-        }
-
-        /* Old-school Winamp-style section */
-        .winamp-section {
-            margin-top: 40px;
-            background: #000;
-            color: #0f0;
-            padding: 20px;
-            border-radius: 8px;
-            font-family: monospace;
-            text-align: center;
-            box-shadow: inset 0 0 20px rgba(0,255,0,0.5);
-        }
-        .winamp-section h3 {
-            margin: 0;
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-            text-shadow: 0 0 5px #0f0;
-        }
-
-        .winamp-controls {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .winamp-button {
-            display: inline-block;
-            background: #111;
-            color: #0f0;
-            padding: 5px 10px;
-            border: 1px solid #0f0;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
-        .winamp-button:hover {
-            background: #0f0;
-            color: #000;
-        }
-
-        .under-construction {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .under-construction img {
-            max-width: 100px;
-            display: block;
-            margin: 0 auto;
-        }
-
         /* Responsive */
-        @media (max-width: 600px) {
-            nav a {
-                display: inline-block;
-                margin: 10px 0;
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
             }
-
-            .profile {
-                flex-direction: column;
+            header p {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Kristjan's Personal Website</h1>
-        <nav>
-            <a href="#about">About Me</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#contact">Contact</a>
-            <a href="#blog">Blog</a>
-        </nav>
-    </header>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#blog">Blog</a></li>
+        </ul>
+    </nav>
 
-    <div class="marquee-container">
-        <div class="marquee">Welcome to Kristjan's Personal Webpage! &mdash; Experience HR Automation, Retro Vibes, and More &mdash; Enjoy your stay!</div>
-    </div>
+    <header>
+        <h1>Kristjan's Personal Webpage</h1>
+        <p>Discover the journey, projects, and thoughts of a leader in HR automation.<br>Fusing technology, innovation, and creative thinking.</p>
+        <div class="scroll-down" onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'});">▼</div>
+    </header>
 
     <section id="about">
         <h2>About Me</h2>
-        <div class="profile">
-            <img src="50skills_Kristjan-profilepic.jpg" alt="Kristjan's Profile Picture">
-            <p>Kristjan is CEO & Co-Founder of 50skills.com - the people process automation platform for seamless employee journeys and enhanced productivity.</p>
+        <div class="profile-container">
+            <img src="https://images.unsplash.com/photo-1611162617212-cfbcf3f0d0a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kristjan's Profile Picture">
+            <div class="bio">
+                <p>
+                    Kristjan is CEO & Co-Founder of 50skills.com – a platform that takes HR processes into the future. With a background spanning entrepreneurship, technology, and organizational growth, he brings a unique vision to every project.
+                </p>
+                <p>
+                    From leading acceleration programs to enabling startups worldwide, his mission is to transform how companies onboard, manage, and empower their teams. His expertise fuses operational efficiency with cutting-edge innovation.
+                </p>
+            </div>
         </div>
-        <p>50skills is a software solution that amplifies HR managers to automate their people processes. It's a no-code employee journey builder, that increases productivity and retention. It's lightning fast and integrates with anything employers use, bringing custom AI services such as OpenAI GPT's to any process.</p>
-        <p>Journeys by 50skills provides templates for every people process, from onboarding to offboarding, paperwork, training, and integrations, helping businesses optimize HR operations.</p>
-        <p>Before 50skills, Kristjan was VP of Marketing Products at Meniga (2014-2017). Prior to that, he led Klak and Startup Reykjavik, contributing to the entrepreneurial scene in Iceland. He has facilitated global startup events, delivered keynotes, and taught over 1,000 students at various universities.</p>
-        <p>Kristjan's educational background includes a Bachelor's in Political Science (with economics emphasis) and a Master's in Marketing from the University of Iceland.</p>
     </section>
 
     <section id="portfolio">
         <h2>Portfolio</h2>
-        <p>Some key projects:</p>
-        <ul>
-            <li><strong>50skills:</strong> An HR automation platform designed to streamline onboarding and operations.</li>
-            <li><strong>Volcanic Ash Souvenirs:</strong> A unique retail project featuring volcanic ash from Eyjafjallajökull.</li>
-            <li><strong>Startup Reykjavik:</strong> Iceland's #1 Seed Accelerator program.</li>
-        </ul>
+        <div class="grid">
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project Image">
+                <h3>50skills</h3>
+                <p>An HR automation platform that streamlines onboarding and operations. Integrate with existing systems and scale effortlessly.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1596078733529-5767a1566ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project Image">
+                <h3>Startup Reykjavik</h3>
+                <p>Iceland's #1 seed accelerator, fostering innovation and guiding startups toward sustainable growth and international success.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1593642634443-44adaa06623a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project Image">
+                <h3>Volcanic Ash Souvenirs</h3>
+                <p>Novelty items from Icelandic volcanic ash, a unique blend of natural wonder and creative entrepreneurship.</p>
+            </div>
+        </div>
     </section>
 
     <section id="contact">
         <h2>Contact</h2>
-        <p>Get in touch via email or LinkedIn.</p>
-        <a href="mailto:yourname@example.com" class="button">Email Me</a>
-        <a href="https://www.linkedin.com/in/your-profile" class="button" target="_blank">LinkedIn</a>
+        <div class="contact-info">
+            <p>Interested in connecting or learning more about these projects?<br>Reach out for collaboration, insights, or a simple chat.</p>
+            <a href="mailto:yourname@example.com" class="button">Email Me</a>
+            <a href="https://www.linkedin.com/in/your-profile" class="button" target="_blank">LinkedIn</a>
+        </div>
     </section>
 
     <section id="blog">
         <h2>Blog</h2>
-        <p>Check out recent posts:</p>
         <ul>
-            <li><a href="#" target="_blank">Building a Better Onboarding Experience</a></li>
-            <li><a href="#" target="_blank">How Automation Shapes the Future of HR</a></li>
-            <li><a href="#" target="_blank">Reflections on Entrepreneurship</a></li>
+            <li><a href="#" target="_blank">Redefining HR Automation: A New Era of Onboarding</a></li>
+            <li><a href="#" target="_blank">From Startup Reykjavik to Scale: Lessons in Growth</a></li>
+            <li><a href="#" target="_blank">Harnessing Talent: The Future of Work</a></li>
         </ul>
     </section>
-
-    <!-- Old-school Winamp style player section -->
-    <section class="winamp-section">
-        <h3>Retro Winamp Player</h3>
-        <div class="winamp-controls">
-            <div class="winamp-button">Play</div>
-            <div class="winamp-button">Stop</div>
-            <div class="winamp-button">Next</div>
-        </div>
-        <p>[ Simulating classic tunes... ]</p>
-    </section>
-
-    <!-- Old-school Under Construction GIF -->
-    <div class="under-construction">
-        <h2>Under Construction</h2>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Under_construction_icon-yellow.svg/200px-Under_construction_icon-yellow.svg.png" alt="Under Construction">
-        <p>Just like the old days of the web!</p>
-    </div>
 
     <footer>
         <p>&copy; 2024 Kristjan's Personal Website. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        // Shrink navbar on scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
